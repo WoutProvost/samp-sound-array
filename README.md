@@ -1,4 +1,4 @@
-# samp-sound-array
+samp-sound-array
 ==================
 This repository serves as a backup for the [original](http://pastebin.com/A1PbQZPd) array by [Austin](http://forum.sa-mp.com/member.php?u=2790) and [[NoV]LaZ](http://forum.sa-mp.com/member.php?u=29025).
 
