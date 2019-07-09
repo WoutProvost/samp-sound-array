@@ -1,0 +1,10 @@
+{
+	"user": "WoutProvost",
+	"repo": "samp-sound-array",
+	"website": "https://github.com/WoutProvost/samp-sound-array",
+	"entry": "test.pwn",
+	"output": "test.amx",
+	"dependencies": [
+		"sampctl/samp-stdlib"
+	]
+}
