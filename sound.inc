@@ -5,14 +5,14 @@
 
 #include <a_samp>
 
-//SOUND AMOUNT LIMIT
+// SOUND AMOUNT LIMIT
 /**
  * -DESCRIPTION:
  * 		-Defines the sound amount limit.
  */
 #define MAX_SOUNDS							6898
 
-//IDs
+// IDs
 /**
  * -DESCRIPTION:
  * 		-Sound IDs, the characters that speak the dialog and the dialog itself.
@@ -28,7 +28,7 @@ enum MAINSOUND_E_SOUND {
 	MAINSOUND_SOUND_DIALOG[MAX_SOUND_DIALOG + 1]
 }
 static const MainSound_SoundIDs[MAX_SOUNDS][MAINSOUND_E_SOUND] = {
-	//ID		//SPEAKER									//DIALOG
+	// ID		// SPEAKER									// DIALOG
 	{1002,		"",											"Ceilng Vent"},
 	{1009,		"",											"Bonnet dent"},
 	{1027,		"",											"Wheel of fortune clacker"},
@@ -6929,7 +6929,7 @@ static const MainSound_SoundIDs[MAX_SOUNDS][MAINSOUND_E_SOUND] = {
 	{45400,		"",											"Beep"}
 };
 
-//GET SOUND INFO
+// GET SOUND INFO
 /**
  * -DESCRIPTION:
  * 		-Get the speaker and dialog of a sound.
@@ -6943,7 +6943,7 @@ static const MainSound_SoundIDs[MAX_SOUNDS][MAINSOUND_E_SOUND] = {
  * 		-1: The function executed successfully.
  * 		-0: The function failed to execute. An invalid soundid was given.
  */
-//native GetSoundInfo(soundid, speaker[], dialog[], slen, dlen); //Fake native
+// native GetSoundInfo(soundid, speaker[], dialog[], slen, dlen); // Fake native
 stock GetSoundInfo(soundid, speaker[], dialog[], slen, dlen) {
 	if(soundid >= MainSound_SoundIDs[0][MAINSOUND_SOUND_ID] && soundid <= MainSound_SoundIDs[MAX_SOUNDS - 1][MAINSOUND_SOUND_ID]) {
 		for(new sound = 0; sound < MAX_SOUNDS; sound++) {
