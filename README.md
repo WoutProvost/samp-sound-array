@@ -1,5 +1,6 @@
 # samp-sound-array
 ![sampctl](https://img.shields.io/badge/sampctl-samp--sound--array-2f2f2f.svg?style=for-the-badge)
+![Total Downloads](https://img.shields.io/github/downloads/WoutProvost/samp-sound-array/total.svg?label=total%20downloads)
 
 **NOTICE:** It is not recommended to include this library! If you need the string corresponding to a given sound ID, just copy these string literals to your script! The provided `GetSoundInfo` function is not intended to be used in a production server!
 
