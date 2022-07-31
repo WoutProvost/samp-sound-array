@@ -6945,14 +6945,26 @@ static const MainSound_SoundIDs[MAX_SOUNDS][MAINSOUND_E_SOUND] = {
  */
 // native GetSoundInfo(soundid, speaker[], dialog[], slen, dlen); // Fake native
 stock GetSoundInfo(soundid, speaker[], dialog[], slen, dlen) {
-	if(soundid >= MainSound_SoundIDs[0][MAINSOUND_SOUND_ID] && soundid <= MainSound_SoundIDs[MAX_SOUNDS - 1][MAINSOUND_SOUND_ID]) {
-		for(new sound = 0; sound < MAX_SOUNDS; sound++) {
-			if(soundid == MainSound_SoundIDs[sound][MAINSOUND_SOUND_ID]) {
-				strmid(speaker, MainSound_SoundIDs[sound][MAINSOUND_SOUND_SPEAKER], 0, slen, slen);
-				strmid(dialog, MainSound_SoundIDs[sound][MAINSOUND_SOUND_DIALOG], 0, dlen, dlen);
-				return 1;
-			}
-		}
+	new sound = MainSound_BinarySearch(soundid); // Since the array is already sorted, we can use a binary search
+	if(sound != -1)	{
+		strmid(speaker, MainSound_SoundIDs[sound][MAINSOUND_SOUND_SPEAKER], 0, slen, slen);
+		strmid(dialog, MainSound_SoundIDs[sound][MAINSOUND_SOUND_DIALOG], 0, dlen, dlen);
+		return 1;
 	}
 	return 0;
+}
+
+// ========================================INTERNAL FUNCTIONS========================================
+static MainSound_BinarySearch(soundid, start = 0, end = MAX_SOUNDS - 1) {
+	if(end >= start) {
+		new mid = start + (end - start) / 2;
+		if(MainSound_SoundIDs[mid][MAINSOUND_SOUND_ID] == soundid) {
+			return mid;
+		}
+		if(MainSound_SoundIDs[mid][MAINSOUND_SOUND_ID] > soundid) {
+			return MainSound_BinarySearch(soundid, start, mid - 1);
+		}
+		return MainSound_BinarySearch(soundid, mid + 1, end);
+	}
+	return -1;
 }
